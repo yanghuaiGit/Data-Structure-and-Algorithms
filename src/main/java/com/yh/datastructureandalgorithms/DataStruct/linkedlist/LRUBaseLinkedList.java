@@ -121,7 +121,7 @@ public class LRUBaseLinkedList<T> {
      */
     private void deleteElemAtEnd() {
         SNode ptr = headNode;
-        // 空链表直接返回
+        // 空链表直接返回 哨兵模式
         if (ptr.getNext() == null) {
             return;
         }
