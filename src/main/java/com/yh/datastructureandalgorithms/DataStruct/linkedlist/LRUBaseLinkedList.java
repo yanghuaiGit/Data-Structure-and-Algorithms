@@ -21,7 +21,7 @@ import java.util.Scanner;
  */
 
 /**
- *headNode的element永远是null，就不需要对第一个节点进行判断了，插入时判断是否是第一个 判断是否为空，不是空就新建一个 next指针指向原头结点，是空，next节点为null。
+ *使用了哨兵模式headNode的element永远是null，就不需要对第一个节点进行判断了，插入时判断是否是第一个 判断是否为空，不是空就新建一个 next指针指向原头结点，是空，next节点为null。
  * 而现在这种headNode永远存在
  * 不需要进行判断
  * 直接headNode的next作为新的结点
