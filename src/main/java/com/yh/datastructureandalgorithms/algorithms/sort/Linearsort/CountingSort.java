@@ -1,11 +1,15 @@
 package com.yh.datastructureandalgorithms.algorithms.sort.Linearsort;
 
+import java.util.Arrays;
+
 /**
  * 计数排序
  */
 public class CountingSort {
     public static void main(String[] args) {
+
         int[]a=new int[10];
+        Arrays.sort(a);
         a[0]=100;
         a[1]=120;
         a[2]=80;
