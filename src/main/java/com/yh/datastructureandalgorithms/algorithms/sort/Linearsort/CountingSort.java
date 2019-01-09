@@ -9,7 +9,6 @@ public class CountingSort {
     public static void main(String[] args) {
 
         int[]a=new int[10];
-        Arrays.sort(a);
         a[0]=100;
         a[1]=120;
         a[2]=80;
