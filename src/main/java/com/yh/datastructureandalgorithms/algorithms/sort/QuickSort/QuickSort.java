@@ -47,6 +47,7 @@ public class QuickSort {
             }
         }
 
+        //将基点放入切割处
         int tmp = a[i];
         a[i] = a[r];
         a[r] = tmp;
