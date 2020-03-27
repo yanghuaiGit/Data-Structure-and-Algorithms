@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.tree;
+package com.yh.datastructureandalgorithms.dataStruct.tree;
 
 /**
  * @author lucky_yh

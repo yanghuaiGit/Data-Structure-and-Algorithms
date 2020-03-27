@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.Stack;
+package com.yh.datastructureandalgorithms.dataStruct.stack;
 
 /**
  * 后缀表达式 逆波兰记法

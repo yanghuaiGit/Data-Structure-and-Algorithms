@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.linkedlist;
+package com.yh.datastructureandalgorithms.dataStruct.linkedlist;
 
 
 import java.util.Scanner;

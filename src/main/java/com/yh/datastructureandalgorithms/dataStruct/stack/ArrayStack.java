@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.Stack;
+package com.yh.datastructureandalgorithms.dataStruct.stack;
 
 // 基于数组实现的顺序栈  只需要一个栈顶指针count
 public class ArrayStack {

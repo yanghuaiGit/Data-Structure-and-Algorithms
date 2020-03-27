@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.Queue;
+package com.yh.datastructureandalgorithms.dataStruct.queue;
 
 // 用数组实现的队列 队列和栈相比需要2个指针，队尾以及队首 队尾只会在添加的是自加，队首指针只会在出列时自加
 public class ArrayQueue {

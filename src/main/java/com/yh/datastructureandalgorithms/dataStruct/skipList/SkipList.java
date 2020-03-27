@@ -1,6 +1,5 @@
-package com.yh.datastructureandalgorithms.DataStruct.SkipList;
+package com.yh.datastructureandalgorithms.dataStruct.skipList;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 /**

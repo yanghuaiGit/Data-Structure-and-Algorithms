@@ -1,4 +1,4 @@
-package com.yh.datastructureandalgorithms.DataStruct.Queue;
+package com.yh.datastructureandalgorithms.dataStruct.queue;
 
 /**
  * 循环队列
