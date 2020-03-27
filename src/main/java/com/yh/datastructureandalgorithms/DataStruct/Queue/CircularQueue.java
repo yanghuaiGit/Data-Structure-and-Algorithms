@@ -1,5 +1,8 @@
 package com.yh.datastructureandalgorithms.DataStruct.Queue;
 
+/**
+ * 循环队列
+ */
 public class CircularQueue {
     // 数组：items，数组大小：n
     private String[] items;
