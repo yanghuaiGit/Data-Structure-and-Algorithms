@@ -1,11 +1,19 @@
 package com.yh.datastructureandalgorithms.dataStruct.tree;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.nio.BufferUnderflowException;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Stack;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * 二叉查找树
  */
+@Slf4j
+@Data
 public class BinarySearchTree<T extends Comparable<? super T>> {
 
 
@@ -68,21 +76,21 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
         int result = x.compareTo(root.getElement());
 
-        if(result<0){
-            root.setLeft(remove(x,root.getLeft()));
-        } else  if(result>0){
-            root.setRight(remove(x,root.getRight()));
-        }else if (Objects.nonNull(root.getLeft()) && Objects.nonNull(root.getRight())){
+        if (result < 0) {
+            root.setLeft(remove(x, root.getLeft()));
+        } else if (result > 0) {
+            root.setRight(remove(x, root.getRight()));
+        } else if (Objects.nonNull(root.getLeft()) && Objects.nonNull(root.getRight())) {
             //删除节点有两个儿子节点
 
             //将右最小节点替换
             root.setElement(findMin(root.getRight()).getElement());
 
             //递归删除右最小节点
-            root.setRight(remove(root.getElement(),root.getRight()));
-        }else {
+            root.setRight(remove(root.getElement(), root.getRight()));
+        } else {
             //只有一个节点 或者是叶子节点
-            root = (Objects.nonNull(root.getLeft()))? root.getLeft():root.getRight();
+            root = (Objects.nonNull(root.getLeft())) ? root.getLeft() : root.getRight();
         }
 
         return root;
@@ -167,5 +175,190 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
 
     }
+
+    /**
+     * 前序 中序 后序 都是属于深度优先
+     * 层序遍历 属于广度优先
+     */
+
+    /**
+     * 中序遍历
+     * 左中右
+     *
+     * @param node
+     */
+    private void inOrderTraversal(BinaryNode node) {
+
+        log.info("开始递归中序遍历");
+        recursionInorderTraversal(node);
+
+        log.info("开始迭代中序遍历");
+        itearionInorderTraversal(node);
+
+    }
+
+    /**
+     * 前序遍历
+     *
+     * @param node
+     */
+    private void preOrderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+
+
+    }
+
+    /**
+     * 后序遍历
+     *
+     * @param node
+     */
+    private void postOrderTraversal(BinaryNode node) {
+
+    }
+
+    /**
+     * 层序遍历
+     * 使用队列作为中间变量存储结果
+     *
+     * @param node
+     */
+    private void levelorderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        ConcurrentLinkedQueue<BinaryNode> queue = new ConcurrentLinkedQueue<BinaryNode>();
+
+        queue.add(root);
+        while (queue.size() != 0) {
+            BinaryNode poll = queue.poll();
+            log.info(poll.getElement().toString());
+            queue.add(poll.getLeft());
+            queue.add(poll.getRight());
+        }
+
+    }
+
+    //递归中序遍历
+    private void recursionInorderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        recursionInorderTraversal(node.getLeft());
+        log.info(node.getElement().toString());
+        recursionInorderTraversal(node.getRight());
+    }
+
+    //迭代中序遍历
+    private void itearionInorderTraversal(BinaryNode node) {
+        Stack<BinaryNode> binaryNodeStack = new Stack<>();
+        while (Objects.nonNull(node) || binaryNodeStack.size() != 0) {
+            while (Objects.nonNull(node)) {
+
+                binaryNodeStack.push(node);
+                node = node.getLeft();
+
+            }
+            BinaryNode pop = binaryNodeStack.pop();
+
+            log.info(pop.getElement().toString());
+
+            node = pop.getRight();
+
+        }
+
+    }
+
+    //递归先序遍历
+    private void recursionPreOrderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        log.info(node.getElement().toString());
+
+        recursionPreOrderTraversal(node.getLeft());
+
+        recursionPreOrderTraversal(node.getRight());
+    }
+
+    //迭代先序遍历
+    private void itearionPreOrderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        Stack<BinaryNode> binaryNodeStack = new Stack<>();
+        binaryNodeStack.push(node);
+
+
+        while (binaryNodeStack.size() != 0) {
+
+
+            BinaryNode pop = binaryNodeStack.pop();
+
+            log.info(pop.getElement().toString());
+
+
+            //栈是先进后出 所以右节点先放入
+            if (Objects.nonNull(node.getRight())) {
+                binaryNodeStack.push(node.getRight());
+            }
+
+            if (Objects.nonNull(node.getLeft())) {
+                binaryNodeStack.push(node.getLeft());
+            }
+
+        }
+
+    }
+
+
+    //递归后序遍历
+    private void recursionPostOrderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        recursionPreOrderTraversal(node.getLeft());
+
+        recursionPreOrderTraversal(node.getRight());
+
+        log.info(node.getElement().toString());
+
+    }
+
+    //迭代后序遍历  先序遍历翻转一下就行
+    private void itearionPostoOrderTraversal(BinaryNode node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+        Stack<BinaryNode> binaryNodeStack = new Stack<>();
+        ArrayList<BinaryNode> data = new ArrayList<>();
+
+
+        binaryNodeStack.push(node);
+
+        while (binaryNodeStack.size() != 0) {
+
+
+            BinaryNode pop = binaryNodeStack.pop();
+
+            data.add(pop);
+
+            if (Objects.nonNull(node.getLeft())) {
+                binaryNodeStack.push(node.getLeft());
+            }
+
+            if (Objects.nonNull(node.getRight())) {
+                binaryNodeStack.push(node.getRight());
+            }
+
+        }
+
+        for (int i = data.size() - 1; i >= 0; i--) {
+            log.info(data.get(i).getElement().toString());
+        }
+    }
+
 
 }

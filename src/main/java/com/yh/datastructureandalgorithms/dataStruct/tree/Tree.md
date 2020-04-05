@@ -18,6 +18,9 @@
     如果是一颗完全二叉树，那用数组存储无疑是最节省内存的一种方式，因为数组的存储方式并不需要像链式一样存储额外的左右子节点指针
 <p></p>
 <h3>二叉树的遍历</h3>
+
+<p> 树的遍历 </p>
+<link href="https://www.zhihu.com/tardis/sogou/art/100059468?ab_signature=CiRBSUNtUDVhaEhRNUxCVkVrdWIybm5WWFBkX2FfREMwYUNZRT0SIGY2MmI3MGJjMjg1YWE2YzVkYmZlNzVlZDdkNTk2ZDg4GhAIARIGNi4zNC4wGgQxOTE2&utm_source=wechat_session&utm_medium=social&utm_oi=772756249275035648">
 <ul>
     <li>前序遍历</li>
     <li>中序遍历</li>
