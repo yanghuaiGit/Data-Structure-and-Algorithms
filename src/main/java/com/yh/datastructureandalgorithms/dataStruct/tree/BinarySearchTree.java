@@ -230,13 +230,20 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             return;
         }
         ConcurrentLinkedQueue<BinaryNode> queue = new ConcurrentLinkedQueue<BinaryNode>();
+queue.offer(root);
 
         queue.add(root);
         while (queue.size() != 0) {
             BinaryNode poll = queue.poll();
             log.info(poll.getElement().toString());
-            queue.add(poll.getLeft());
-            queue.add(poll.getRight());
+            if(Objects.nonNull(poll.getLeft())){
+                queue.add(poll.getLeft());
+            }
+            if(Objects.nonNull(poll.getRight())){
+                queue.add(poll.getRight());
+            }
+
+
         }
 
     }
