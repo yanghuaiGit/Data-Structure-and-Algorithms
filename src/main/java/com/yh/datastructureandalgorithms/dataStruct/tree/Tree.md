@@ -85,7 +85,8 @@ void postOrder(Node* root) {
 <li>右左:其实是先右旋转，使得转变为右右情况，再使用左旋转</li>
 
 <a href="https://www.jianshu.com/p/65c90aa1236d"> 比较好的一份平衡树解析博客 </a>
-
+<img src="static/Snipaste_2020-04-09_08-33-31.jpg" alt="双旋转过程">
+<a href="static/Snipaste_2020-04-09_08-33-31.jpg">aaa</a>
 <h2>B树</h2>
 
 
