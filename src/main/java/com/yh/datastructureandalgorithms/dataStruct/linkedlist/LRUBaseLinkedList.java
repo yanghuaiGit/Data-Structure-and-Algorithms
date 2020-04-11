@@ -5,8 +5,18 @@ import java.util.Scanner;
 
 /**
  * 单链表实现LRU
+ *
  * @author yh
  * @create 2018-12-26
+ * <p>
+ * 思路：
+ * 1 判断是否已在缓存
+ * 不在，尾结点添加
+ * 判断链表是否满
+ * 链表已满，删除首结点，添加到尾结点
+ * 未满，直接添加
+ * <p>
+ * 在缓存中，删除已存在结点，添加到尾结点
  */
 
 /**
@@ -76,6 +86,7 @@ public class LRUBaseLinkedList<T> {
             intsertElemAtBegin(data);
         }
     }
+
     /**
      * 删除preNode结点下一个元素
      *
@@ -147,40 +158,6 @@ public class LRUBaseLinkedList<T> {
     }
 
 
-    private class SNode<T>{
-        private T element;
-        private SNode next;
-
-        public SNode(T element) {
-            this.element = element;
-        }
-
-        public SNode(T element, SNode next) {
-            this.element = element;
-            this.next = next;
-        }
-
-        public SNode() {
-            this.next = null;
-        }
-
-
-        public T getElement() {
-            return element;
-        }
-
-        public void setElement(T element) {
-            this.element = element;
-        }
-
-        public SNode getNext() {
-            return next;
-        }
-
-        public void setNext(SNode next) {
-            this.next = next;
-        }
-    }
     public static void main(String[] args) {
         LRUBaseLinkedList list = new LRUBaseLinkedList();
         Scanner sc = new Scanner(System.in);
