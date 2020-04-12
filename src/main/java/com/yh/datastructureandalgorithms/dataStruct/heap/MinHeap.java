@@ -5,18 +5,18 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Arrays;
 
 /**
- * 最大堆
+ * 最小堆
  * https://time.geekbang.org/column/article/69913
  */
 @Slf4j
-public class MaxHeap<T extends Comparable<? super T>> {
+public class MinHeap<T extends Comparable<? super T>> {
     /**
      * 数组，从下标为1开始存储数据
      */
     private T[] array;
     private int currentSize;
 
-    public MaxHeap(T[] array) {
+    public MinHeap(T[] array) {
         currentSize = array.length;
         buildHeap(array);
     }
@@ -29,7 +29,7 @@ public class MaxHeap<T extends Comparable<? super T>> {
 
         array[hole] = data;
         //自下往上进行堆化
-        while (hole / 2 > 0 && array[hole].compareTo(array[hole / 2]) > 0) {
+        while (hole / 2 > 0 && array[hole].compareTo(array[hole / 2]) < 0) {
             swap(array, hole, hole / 2);
             hole = hole / 2;
         }
@@ -54,22 +54,32 @@ public class MaxHeap<T extends Comparable<? super T>> {
 
     //自上往下进行堆化
     //堆只是完全二叉树 不是搜索二叉树 左边节点小于右边节点 是没有这个限制的
-    //因此每次循环，找到坐标为i的root节点的子节点中 大于root且是最大值 需要判断左节点 和 右节点
+    //因此每次循环，找到坐标为i的root节点的子节点中 小于root且是最小值 需要判断左节点 和 右节点
     private void heapify(T[] array, int currentSize, int i) {
         while (true) {
-            int maxPos = i;
-            if (i * 2 <= currentSize && array[i].compareTo(array[i * 2]) < 0) {
-                maxPos = i * 2;
+            int minPos = i;
+            if (i * 2 <= currentSize && array[i].compareTo(array[i * 2]) > 0) {
+                minPos = i * 2;
             }
-            if (i * 2 + 1 <= currentSize && array[maxPos].compareTo(array[i * 2 + 1]) < 0) {
-                maxPos = i * 2 + 1;
+            if (i * 2 + 1 <= currentSize && array[minPos].compareTo(array[i * 2 + 1]) > 0) {
+                minPos = i * 2 + 1;
             }
-            if (maxPos == i) {
+            if (minPos == i) {
                 break;
             }
-            swap(array, i, maxPos);
-            i = maxPos;
+            swap(array, i, minPos);
+            i = minPos;
         }
+    }
+
+    //扩容
+    private void enlageArray(int size) {
+        T[] newArray = (T[]) new Comparable[size];
+        int i = 1;
+        for (T item : array) {
+            newArray[i++] = item;
+        }
+        this.array = newArray;
     }
 
     @Override
@@ -92,15 +102,6 @@ public class MaxHeap<T extends Comparable<? super T>> {
 
     }
 
-    private void enlageArray(int size) {
-        T[] newArray = (T[]) new Comparable[size];
-        int i = 1;
-        for (T item : array) {
-            newArray[i++] = item;
-        }
-        this.array = newArray;
-    }
-
     public static void main(String[] args) {
         Integer[] integers = new Integer[9];
         integers[0] = 7;
@@ -113,12 +114,12 @@ public class MaxHeap<T extends Comparable<? super T>> {
         integers[7] = 13;
         integers[8] = 16;
         log.info("建堆前:array[]---->{}", Arrays.toString(integers));
-        MaxHeap<Integer> integerHeap = new MaxHeap<>(integers);
+        MinHeap<Integer> integerHeap = new MinHeap<>(integers);
         log.info("建堆后heaps--->{}", integerHeap.toString());
-        integerHeap.insert(21);
-        log.info("insert 21后--->{}", integerHeap.toString());
-        integerHeap.insert(20);
-        log.info("insert 20后--->{}", integerHeap.toString());
+        integerHeap.insert(9);
+        log.info("insert 9后--->{}", integerHeap.toString());
+        integerHeap.insert(0);
+        log.info("insert 0后--->{}", integerHeap.toString());
     }
 
 }
