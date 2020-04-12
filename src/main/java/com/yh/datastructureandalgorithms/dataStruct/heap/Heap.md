@@ -55,6 +55,7 @@
 
 
 <h4>堆排序的应用</h4>
+<li>优先级队列:PriorityQueue</li>
 <li>top k</li>
 <li>流里面的中值</li>
 <li>流里面的中位数</li>
