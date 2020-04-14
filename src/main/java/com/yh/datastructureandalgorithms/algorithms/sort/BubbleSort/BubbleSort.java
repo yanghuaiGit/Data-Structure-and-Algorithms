@@ -2,6 +2,8 @@ package com.yh.datastructureandalgorithms.algorithms.sort.BubbleSort;
 
 /**
  * 冒泡排序
+ * 只涉及到相邻数据的交换操作，只需要常量级的临时空间，所以时间复杂度为o(1)，是一个原地排序算法
+ * 稳定的排序算法  如果相邻的两个元素的大小相等的时候，不做交换
  */
 public class BubbleSort {
     //a表示数组，b表示数组大小

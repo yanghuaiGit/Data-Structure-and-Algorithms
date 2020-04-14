@@ -3,6 +3,9 @@ package com.yh.datastructureandalgorithms.algorithms.sort.InsertionSort;
 
 /**
  * 插入排序
+ * 原地
+ * 稳定
+ * O(n^2)
  */
 public class InsertionSort {
     public static void main(String[]args){

@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 归并排序
+ * 稳定 非原地
+ * o(nlog m) 任何场景下时间复杂度都是一样的
  */
 public class merge_sort {
     public static void main(String[] args) {

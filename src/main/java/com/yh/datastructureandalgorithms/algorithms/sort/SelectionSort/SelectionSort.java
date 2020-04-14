@@ -19,6 +19,7 @@ public class SelectionSort {
 
     public static  void SelectionSort(int [] arr,int n){
 
+        //i<n-1 最后一个位置是不需要排序的
         for(int i = 0; i < n - 1; i++) {// 做第i趟排序
             int k = i;
             for(int j = k + 1; j < n; j++){// 选最小的记录
