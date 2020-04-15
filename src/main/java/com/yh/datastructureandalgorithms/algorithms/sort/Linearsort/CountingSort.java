@@ -1,29 +1,30 @@
 package com.yh.datastructureandalgorithms.algorithms.sort.Linearsort;
 
-import java.util.Arrays;
-
 /**
  * 计数排序
+ * 计数排序一般只用在数据范围不大场景(不是数据量不大),如果数据范围k比要排序的数据n大很多，就不适合用计数排序了
+ * 计数排序只能给非负整数排序，如果要排序的数据是其它类型的，要将其在不改变相对大小的情况下转为非负整数
  */
 public class CountingSort {
     public static void main(String[] args) {
 
-        int[]a=new int[10];
-        a[0]=100;
-        a[1]=120;
-        a[2]=80;
-        a[3]=89;
-        a[4]=0;
-        a[5]=51;
-        a[6]=5;
-        a[7]=5;
-        a[8]=46;
-        a[9]=43;
-        countingSort(a,10);
-        for(int aa:a){
-         System.out.println(aa);
+        int[] a = new int[10];
+        a[0] = 100;
+        a[1] = 120;
+        a[2] = 80;
+        a[3] = 89;
+        a[4] = 0;
+        a[5] = 51;
+        a[6] = 5;
+        a[7] = 5;
+        a[8] = 46;
+        a[9] = 43;
+        countingSort(a, 10);
+        for (int aa : a) {
+            System.out.println(aa);
         }
     }
+
     // 计数排序，a是数组，n是数组大小。假设数组中存储的都是非负整数。
     public static void countingSort(int[] a, int n) {
         if (n <= 1) return;
@@ -49,14 +50,14 @@ public class CountingSort {
 
         // 依次累加
         for (int i = 1; i < max + 1; ++i) {
-            c[i] = c[i-1] + c[i];
+            c[i] = c[i - 1] + c[i];
         }
 
         // 临时数组r，存储排序之后的结果
         int[] r = new int[n];
         // 计算排序的关键步骤了，有点难理解
         for (int i = n - 1; i >= 0; --i) {
-            int index = c[a[i]]-1;
+            int index = c[a[i]] - 1;
             r[index] = a[i];
             c[a[i]]--;
         }
