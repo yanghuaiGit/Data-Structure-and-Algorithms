@@ -2,6 +2,7 @@ package com.yh.datastructureandalgorithms.algorithms.sort.ShellSort;
 
 /**
  * 希尔排序
+ * https://blog.csdn.net/qq_39207948/article/details/80006224
  */
 public class ShellSort {
     public static void main(String[] args) {
@@ -18,17 +19,21 @@ public class ShellSort {
         for (int step = arr.length / 2; step > 0; step /= 2) {
             //对一个步长区间进行比较 [step,arr.length)
             for (int i = step; i < arr.length; i++) {
-                int value = arr[i];
-                int j;
-
-                //对步长区间中具体的元素进行比较
-                for (j = i - step; j >= 0 && arr[j] > value; j -= step) {
-                    //j为左区间的取值，j+step为右区间与左区间的对应值。
-                    arr[j + step] = arr[j];
-                }
-                //此时step为一个负数，[j + step]为左区间上的初始交换值
-                arr[j + step] = value;
+                insertI(arr,step,i);
             }
         }
+    }
+
+    private static void insertI(int[] arr,int step,int i ){
+        int value = arr[i];
+        int j;
+
+        //对步长区间中具体的元素进行比较
+        for (j = i - step; j >= 0 && arr[j] > value; j -= step) {
+            //j为左区间的取值，j+step为右区间与左区间的对应值。
+            arr[j + step] = arr[j];
+        }
+        //此时step为一个负数，[j + step]为左区间上的初始交换值
+        arr[j + step] = value;
     }
 }
