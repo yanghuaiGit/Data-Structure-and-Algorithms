@@ -1,4 +1,4 @@
-<h2>排序 slave132222222</h2>
+<h2>排序 host</h2>
 <img src="https://static001.geekbang.org/resource/image/fb/cd/fb8394a588b12ff6695cfd664afb17cd.jpg"/>
 插入排序和冒泡排序的时间复杂度相同都是O(n2)，在实际的软件开发中，为什么更倾向于使用插入排序而不是冒泡排序？
 <p>分析排序算法的执行效率</p>
