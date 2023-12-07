@@ -13,6 +13,11 @@ public class SNode<T> {
         this.next = next;
     }
 
+    public SNode<T> next(SNode<T> next) {
+        this.next = next;
+        return next;
+    }
+
     public SNode() {
         this.next = null;
     }

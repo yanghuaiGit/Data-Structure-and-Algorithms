@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 最大堆
  * https://time.geekbang.org/column/article/69913
  */
-@Slf4j
+
 public class MaxHeap<T extends Comparable<? super T>> {
     /**
      * 数组，从下标为1开始存储数据
@@ -112,13 +112,13 @@ public class MaxHeap<T extends Comparable<? super T>> {
         integers[6] = 20;
         integers[7] = 13;
         integers[8] = 16;
-        log.info("建堆前:array[]---->{}", Arrays.toString(integers));
+        System.out.println("建堆前:array[]---->" + Arrays.toString(integers));
         MaxHeap<Integer> integerHeap = new MaxHeap<>(integers);
-        log.info("建堆后heaps--->{}", integerHeap.toString());
+        System.out.println("建堆后heaps--->" +  integerHeap.toString());
         integerHeap.insert(21);
-        log.info("insert 21后--->{}", integerHeap.toString());
+        System.out.println("insert 21后--->"  +  integerHeap.toString());
         integerHeap.insert(20);
-        log.info("insert 20后--->{}", integerHeap.toString());
+        System.out.println("insert 20后--->" +  integerHeap.toString());
     }
 
 }

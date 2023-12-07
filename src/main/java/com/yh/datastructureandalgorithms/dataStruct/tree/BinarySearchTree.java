@@ -12,7 +12,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * 二叉查找树
  */
-@Slf4j
 @Data
 public class BinarySearchTree<T extends Comparable<? super T>> {
 
@@ -188,11 +187,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * @param node
      */
     private void inOrderTraversal(BinaryNode node) {
-
-        log.info("开始递归中序遍历");
+        
         recursionInorderTraversal(node);
-
-        log.info("开始迭代中序遍历");
+        
         itearionInorderTraversal(node);
 
     }
@@ -235,7 +232,7 @@ queue.offer(root);
         queue.add(root);
         while (queue.size() != 0) {
             BinaryNode poll = queue.poll();
-            log.info(poll.getElement().toString());
+            System.out.println(poll.getElement().toString());
             if(Objects.nonNull(poll.getLeft())){
                 queue.add(poll.getLeft());
             }
@@ -254,7 +251,7 @@ queue.offer(root);
             return;
         }
         recursionInorderTraversal(node.getLeft());
-        log.info(node.getElement().toString());
+        System.out.println(node.getElement().toString());
         recursionInorderTraversal(node.getRight());
     }
 
@@ -270,7 +267,7 @@ queue.offer(root);
             }
             BinaryNode pop = binaryNodeStack.pop();
 
-            log.info(pop.getElement().toString());
+            System.out.println(pop.getElement().toString());
 
             node = pop.getRight();
 
@@ -283,7 +280,7 @@ queue.offer(root);
         if (Objects.isNull(node)) {
             return;
         }
-        log.info(node.getElement().toString());
+        System.out.println(node.getElement().toString());
 
         recursionPreOrderTraversal(node.getLeft());
 
@@ -304,7 +301,7 @@ queue.offer(root);
 
             BinaryNode pop = binaryNodeStack.pop();
 
-            log.info(pop.getElement().toString());
+            System.out.println(pop.getElement().toString());
 
 
             //栈是先进后出 所以右节点先放入
@@ -330,7 +327,7 @@ queue.offer(root);
 
         recursionPreOrderTraversal(node.getRight());
 
-        log.info(node.getElement().toString());
+        System.out.println(node.getElement().toString());
 
     }
 
@@ -363,7 +360,7 @@ queue.offer(root);
         }
 
         for (int i = data.size() - 1; i >= 0; i--) {
-            log.info(data.get(i).getElement().toString());
+            System.out.println(data.get(i).getElement().toString());
         }
     }
 

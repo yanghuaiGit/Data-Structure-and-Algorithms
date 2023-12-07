@@ -15,7 +15,7 @@ public class LruCache<K, V> {
     private int maxSize;
     private HashMap<K, V> delegate;
 
-    public LruCache(int maxSize) {
+    public LruCache(final int maxSize) {
         this.maxSize = maxSize;
         this.delegate = new LinkedHashMap<K, V>(maxSize, .75F, true) {
             private static final long serialVersionUID = 4267176411845948333L;

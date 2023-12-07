@@ -12,7 +12,7 @@ public class FifoCache<K,V> {
     private int maxSize;
     private HashMap<K, V> delegate;
 
-    public FifoCache(int maxSize) {
+    public FifoCache(final int maxSize) {
         this.maxSize = maxSize;
         this.delegate = new LinkedHashMap<K, V>() {
             private static final long serialVersionUID = 4267176411845948333L;

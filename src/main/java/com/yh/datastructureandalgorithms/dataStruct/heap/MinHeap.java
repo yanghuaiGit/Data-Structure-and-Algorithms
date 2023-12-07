@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 最小堆
  * https://time.geekbang.org/column/article/69913
  */
-@Slf4j
+
 public class MinHeap<T extends Comparable<? super T>> {
     /**
      * 数组，从下标为1开始存储数据
@@ -113,13 +113,14 @@ public class MinHeap<T extends Comparable<? super T>> {
         integers[6] = 20;
         integers[7] = 13;
         integers[8] = 16;
-        log.info("建堆前:array[]---->{}", Arrays.toString(integers));
+        System.out.println(String.format("建堆前:array[]---->%s",Arrays.toString(integers)));
         MinHeap<Integer> integerHeap = new MinHeap<>(integers);
-        log.info("建堆后heaps--->{}", integerHeap.toString());
+        System.out.println(String.format("建建堆后heaps---->%s",integerHeap));
         integerHeap.insert(9);
-        log.info("insert 9后--->{}", integerHeap.toString());
+        System.out.println(String.format("insert 9后--->%s",integerHeap.toString()));
+
         integerHeap.insert(0);
-        log.info("insert 0后--->{}", integerHeap.toString());
+        System.out.println(String.format("insert 0后--->%s", integerHeap.toString()));
     }
 
 }
